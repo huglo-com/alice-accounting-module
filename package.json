@@ -1,0 +1,26 @@
+{
+  "name": "alice-accounting",
+  "version": "0.1.0",
+  "description": "Alice Accounting — Huglo module example that stores invoices in JSON files",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "zod": "^4.4.3",
+    "dotenv": "^17.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "tsx": "^4.19.4",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.7"
+  }
+}
