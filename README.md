@@ -13,6 +13,7 @@ Built with `@huglo/module-sdk`
 | `invoices:list` | List all invoices for the subject |
 
 Invoices are persisted under `data/invoices/<id>.json` (gitignored). Each invoice is scoped to the verified grant subject.
+In production, use a durable database instead of plain files on disk.
 
 ## Setup
 
@@ -20,26 +21,7 @@ Edit `.env` as needed:
 
 - `MODULE_PRIVATE_KEY_PATH=./private.pem` — required
 - `PORT=3200` — optional (default 3200)
-- `DATA_DIR=./data/invoices` — optional invoice storage path
 - `MODULE_CHALLENGE` / `MODULE_ENDPOINT` — set when registering with Huglo UI
-
-## Run
-
-```bash
-npm run dev    # watch mode
-npm run start  # single run
-npm run build  # compile to dist/
-```
-
-The module listens on `http://localhost:3200` by default and exposes:
-
-- `GET /health`
-- `GET /manifest`
-- `GET /.well-known/huglo-challenge` (when registration env is set)
-- `GET /grant/callback`
-- `POST /invoke/invoices:write`
-- `POST /invoke/invoices:read`
-- `POST /invoke/invoices:list`
 
 ## Registration
 

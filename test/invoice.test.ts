@@ -21,10 +21,11 @@ let invoiceService: typeof import("../src/services/invoice.js");
 describe("invoice service", () => {
   beforeAll(async () => {
     dataDir = await mkdtemp(path.join(tmpdir(), "alice-inv-"));
-    process.env["DATA_DIR"] = dataDir;
-    // Clear module cache so config.js reads the temp DATA_DIR before the store
-    // singleton is created (other test files may have loaded store.js already).
     vi.resetModules();
+    vi.doMock("../src/config.js", async () => {
+      const actual = await vi.importActual("../src/config.js");
+      return { ...actual, DATA_DIR: dataDir };
+    });
     invoiceService = await import("../src/services/invoice.js");
   });
 
