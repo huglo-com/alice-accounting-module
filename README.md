@@ -27,5 +27,5 @@ Edit `.env` as needed:
 
 1. Register endpoint URL in the Huglo UI.
 2. Set `MODULE_CHALLENGE` and `MODULE_ENDPOINT` in `.env`.
-3. Restart the module — it serves the signed challenge at `/.well-known/huglo-challenge`.
+3. Restart the module - so the env vars are loaded
 4. Click **Verify** in the Huglo UI.
